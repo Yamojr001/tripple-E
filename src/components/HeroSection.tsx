@@ -38,7 +38,7 @@ const HeroSection = () => {
       <ParticlesBackground />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-12 items-center">
           {/* Left side - Content */}
           <motion.div
             ref={ref}
@@ -47,41 +47,26 @@ const HeroSection = () => {
             transition={{ duration: 1.2 }}
             className="space-y-8"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="inline-block"
-            >
-              {/* <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <span className="text-primary-foreground font-bold text-3xl">E³</span>
-              </div> */}
-            </motion.div>
-
             <div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
               >
                 <span className="text-gradient">TripleE </span>
-                {/* <br /> */}
                 <span className="text-foreground"> Trade</span>
                 <br />
-                <span className="text-foreground text-center block mb-1 mx-auto"> {/* Reduced bottom margin and centered */}
-                  & {/* This spans the '&' symbol */}
+                <span className="text-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl block mb-1 mx-auto">
+                  Investment Facilitation
                 </span>
-                <br />
-                <span className="text-foreground md:text-4xl lg:text-5xl">Investment</span>
-                <span className="text-foreground md:text-4xl lg:text-5xl">Facilitation</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.8, duration: 1 }}
-                className="text-xl text-muted-foreground mb-8 max-w-2xl"
+                className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl"
               >
                 Helping agribusinesses move products across borders and helping investors move money into secure US markets.
               </motion.p>
@@ -96,7 +81,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("services")}
-                className="group"
+                className="group w-full sm:w-auto"
               >
                 Explore Services
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -105,6 +90,7 @@ const HeroSection = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("contact")}
+                className="w-full sm:w-auto"
               >
                 Get in Touch
               </Button>
@@ -123,11 +109,11 @@ const HeroSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 1.7 + index * 0.3, duration: 0.8 }}
-                  className="flex flex-col gap-2"
+                  className="flex flex-col gap-2 items-center"
                 >
-                  <item.icon className="w-8 h-8 text-primary" />
-                  <h3 className="font-bold text-xl">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <item.icon className="w-10 h-10 text-primary" />
+                  <h3 className="font-bold text-lg sm:text-xl">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground text-center">{item.description}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -138,9 +124,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.8, duration: 1.2 }}
-            className="w-full"
+            className="w-full mt-12 lg:mt-0"
           >
-            <div className="w-full h-[400px] lg:h-[500px]">
+            <div className="w-full h-[300px] sm:h-[400px] lg:h-[500px]">
               <TradeRouteMap />
             </div>
           </motion.div>
