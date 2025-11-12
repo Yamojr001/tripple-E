@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* TripleE Brand Colors - Updated to darker professional green */
+    --brand-green: 154 90% 25%; /* Darker green matching logo */
+    --brand-green-light: 154 70% 35%;
+    --brand-green-dark: 154 100% 20%;
+    --brand-gray: 0 0% 54%; /* #898989 */
+    
+    /* Core Design Tokens */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    
+    --primary: 154 90% 25%; /* Updated to darker brand green */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+    
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 54%;
+    
+    --accent: 154 70% 35%; /* Updated to match lighter variant */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 154 90% 25%; /* Updated to darker green */
+    
+    --radius: 0.75rem;
+    
+    /* Custom Tokens - Updated gradients */
+    --hero-gradient-start: 154 90% 25%;
+    --hero-gradient-end: 154 100% 20%;
+    --section-bg-light: 0 0% 98%;
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 154 70% 35%; /* Slightly lighter in dark mode for accessibility */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 154 60% 40%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 154 70% 35%;
+    
+    --section-bg-light: 0 0% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  /* Prevent horizontal scroll globally */
+  * {
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--hero-gradient-start)), hsl(var(--hero-gradient-end)));
+  }
+  
+  .section-light-bg {
+    background-color: hsl(var(--section-bg-light));
+  }
+  
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out forwards;
+  }
+  
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--brand-green)), hsl(var(--brand-green-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* New utility classes for the darker green */
+  .bg-brand-dark {
+    background-color: hsl(var(--brand-green));
+  }
+  
+  .text-brand-dark {
+    color: hsl(var(--brand-green));
+  }
+  
+  .border-brand-dark {
+    border-color: hsl(var(--brand-green));
+  }
+}
